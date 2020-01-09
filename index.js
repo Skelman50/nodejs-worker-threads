@@ -67,19 +67,19 @@ async function run() {
   //   spinner.text = "sorting... this may take a while...";
 
   // sort with a single worker
-  //   const start1 = Date.now();
-  //   const result1 = await distributeLoadAcrossWorkers(1);
-  //   console.log(
-  //     `sorted ${result1.length} items, with 1 worker in ${Date.now() - start1}ms`
-  //   );
+  const start1 = Date.now();
+  const result1 = await distributeLoadAcrossWorkers(1);
+  console.log(
+    `sorted ${result1.length} items, with 1 worker in ${Date.now() - start1}ms`
+  );
 
   // sort with no worker at all
-  //   let start2 = Date.now();
-  //   const result2 = bigArray.sort((a, b) => a - b);
-  //   console.log(
-  //     `sorted2 ${result2.length} items, without workers in ${Date.now() -
-  //       start2}ms`
-  //   );
+  let start2 = Date.now();
+  const result2 = bigArray.sort((a, b) => a - b);
+  console.log(
+    `sorted2 ${result2.length} items, without workers in ${Date.now() -
+      start2}ms`
+  );
 
   const start3 = Date.now();
   const result3 = await distributeLoadAcrossWorkers(cpuCount);
